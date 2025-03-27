@@ -65,7 +65,7 @@ Now on right side, you can add dependencies. Choose the following:
 
 Once you are happy with configuration, just **Generate and Download** project.
 
-## Open project in IDE
+#### 2. Open project in IDE
 We are using "IntelliJ IDEA Ultimate" here, you can choose any of these:
 - Eclipse
 - Netbeans
@@ -74,14 +74,38 @@ We are using "IntelliJ IDEA Ultimate" here, you can choose any of these:
 
 Spring team also provide helpful IDE Plugins and tools as "Spring Tool Suite" package. You can use these to help you with Spring.
 
-Once you download your project **zip** file, just extract it somewhere on your system path and open it up in your IDE.
+Once you download your project **zip** file, just extract it somewhere on your system path and open it up in your IDE. Let the IDE download all the required packages and finish loading.
+
+**Optional - Configure auto build and hot reload**
+
+If you added "Spring Dev Tools" as dependency and if you are using "IntelliJ IDEA" you can configure project auto-compile when saving source code. To do so, open **Settings** > **Build, Execution, Deployment** > **Compiler** and enable **Build project automatically**
+![image](https://github.com/user-attachments/assets/6ec10642-0494-49a4-808b-8b5a1e8d1b0f)
+
+Also, you need to go to **Settings** > **Advanced Settings** > Under Compiler Heading > enable **Allow auto-make to start even if developed application is currently running**
+![image](https://github.com/user-attachments/assets/c8ba939b-b117-4f9b-bf28-3cdf64c8032c)
+
+#### 3. Add Controller
+The downloaded project is quite empty by default. Let's create a **Rest Controller**. It receives a request and responds accordingly.
+
+To create a simple rest controller, let's add a Java class under **src/main/java/com/example/demo/** path as **DemoController.java**. This file contents are as shown below:
+```java
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@RestController                 // spring annotation to create REST controller
+public class DemoController {
+
+    @GetMapping("/")            // receives GET request at '/' home path
+    public String sayHello() {
+        return "Hello from Spring Boot!";
+    }
+}
+```
 
 
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/687953fa-9b0e-4b32-839d-a1623cfd5a60)
 
 
 
